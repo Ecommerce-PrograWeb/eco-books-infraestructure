@@ -150,6 +150,7 @@ class InfraEcoBooksStack(Stack):
                 "DB_HOST": database.db_instance_endpoint_address,
                 "DB_PORT": "3306",
                 "DB_NAME": "ecobooks",
+                "FRONTEND_URL": "*",  # Allow all origins for CORS - will be updated after deployment
             },
             secrets={
                 "DB_USER": ecs.Secret.from_secrets_manager(db_secret, "username"),
